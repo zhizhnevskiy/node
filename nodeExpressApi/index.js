@@ -8,14 +8,16 @@ const DB_URL = `mongodb+srv://zhizhnevskiy:bestdevmongo@cluster0.fuyit.mongodb.n
 
 const app = express()
 
+// for routing
+app.use('/api', router)
+
 // for read json
 app.use(express.json())
 // for save file
 app.use(fileUpload({}))
 // for show picture from folder 'static'
 app.use(express.static('static'))
-// for routing
-app.use('/api', router)
+
 
 // for show message on home page
 app.get('/', async (request, response) => {
